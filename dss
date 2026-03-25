@@ -1,0 +1,44 @@
+[33mcommit f7f1a2dd39b16dc2d29b8082e347b2525ce6e8b1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: 052dce0 970fea6
+Author: Carlos Eduardo Carfi <157553755+CaduCarfi@users.noreply.github.com>
+Date:   Wed Mar 25 16:04:25 2026 -0300
+
+    Merge pull request #7 from CaduCarfi/Aula2
+    
+    Cria uma entidade no banco de dados apartir do NinjaModel [Aula3]
+
+[33mcommit 970fea6ef582fa6d1c89379dc8a6f3122dc5a2d1[m[33m ([m[1;31morigin/Aula2[m[33m, [m[1;32mAula2[m[33m)[m
+Author: CaduCarfi <157553755+CaduCarfi@users.noreply.github.com>
+Date:   Wed Mar 25 16:03:20 2026 -0300
+
+    Cria uma entidade no banco de dados apartir do NinjaModel [Aula3]
+
+[33mcommit 052dce0c39da589bcf8288f05cdd9a6cabed2a8b[m
+Author: Carlos Eduardo Carfi <157553755+CaduCarfi@users.noreply.github.com>
+Date:   Wed Mar 25 16:00:38 2026 -0300
+
+    Update README.md
+
+[33mcommit 587c302c98e0b39766af7ae38367175ce28204f9[m
+Author: Carlos Eduardo Carfi <157553755+CaduCarfi@users.noreply.github.com>
+Date:   Wed Mar 25 15:58:18 2026 -0300
+
+    Update README.md
+
+[33mcommit d65cc8d3f515af59960856bcd050f9b2714362df[m
+Author: CaduCarfi <157553755+CaduCarfi@users.noreply.github.com>
+Date:   Tue Mar 24 16:07:24 2026 -0300
+
+    Criado a controller [Aula2]
+
+[33mcommit 01f67d4dcb25486f9d4fdcb6a6f818724d11a951[m
+Author: CaduCarfi <157553755+CaduCarfi@users.noreply.github.com>
+Date:   Sat Mar 21 10:43:32 2026 -0300
+
+    Create SpringBoot project
+
+[33mcommit 46edade60908139788e6b85c85fe41a1d82e91ba[m
+Author: CaduCarfi <157553755+CaduCarfi@users.noreply.github.com>
+Date:   Sat Mar 21 10:40:00 2026 -0300
+
+    Initial commit
