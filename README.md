@@ -68,4 +68,4 @@ O sistema possui duas entidades principais:
 
 ### 1️⃣ Clonar o repositório
 ```bash
-git clone https://github.com/horaciomuller/CadastroDeNinjas.git
+git clone https://github.com/CaduCarfi/CadastroDeNinjas.git
