@@ -4,14 +4,271 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Tabela de Ninjas</title>
+    <style>
+        /* Reset e estilos globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        /* Container principal */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            padding: 40px;
+        }
+
+        /* Título */
+        h1 {
+            color: #2d3748;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        /* Tabela */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            overflow: hidden;
+        }
+
+        /* Headers da tabela */
+        thead {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        thead th {
+            color: white;
+            padding: 18px 15px;
+            text-align: left;
+            font-weight: 600;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        /* Linhas da tabela */
+        tbody tr {
+            border-bottom: 1px solid #e2e8f0;
+            transition: all 0.3s ease;
+        }
+
+        tbody tr:hover {
+            background-color: #f7fafc;
+            transform: scale(1.01);
+            box-shadow: 0 4px 12px rgba(102, 126, 234, 0.1);
+        }
+
+        /* Células da tabela */
+        tbody td {
+            padding: 16px 15px;
+            color: #2d3748;
+            font-size: 0.95rem;
+        }
+
+        /* Imagens na tabela */
+        tbody td img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #667eea;
+            transition: transform 0.3s ease;
+        }
+
+        tbody td img:hover {
+            transform: scale(1.15);
+        }
+
+        /* Badges de rank */
+        .rank-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .rank-s {
+            background-color: #fed7aa;
+            color: #92400e;
+        }
+
+        .rank-a {
+            background-color: #fbbf24;
+            color: #78350f;
+        }
+
+        .rank-b {
+            background-color: #a78bfa;
+            color: #4c1d95;
+        }
+
+        .rank-c {
+            background-color: #86efac;
+            color: #15803d;
+        }
+
+        /* Missões */
+        .missions-info {
+            background: #f0f4ff;
+            padding: 8px 12px;
+            border-radius: 6px;
+            border-left: 4px solid #667eea;
+            font-size: 0.9rem;
+        }
+
+        .missions-info .mission-item {
+            margin: 6px 0;
+        }
+
+        .missions-no-missions {
+            color: #a0aec0;
+            font-style: italic;
+            padding: 8px 12px;
+        }
+
+        /* Seção de ações */
+        .actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* Botões gerais */
+        .btn {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Botão Ver Detalhes */
+        .btn-details {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-details:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-details:active {
+            transform: translateY(0);
+        }
+
+        /* Botão Alterar */
+        .btn-edit {
+            background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+            color: white;
+        }
+
+        .btn-edit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
+        }
+
+        .btn-edit:active {
+            transform: translateY(0);
+        }
+
+        /* Botão Deletar */
+        .btn-delete {
+            background: linear-gradient(135deg, #f56565 0%, #e53e3e 100%);
+            color: white;
+        }
+
+        .btn-delete:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(245, 101, 101, 0.4);
+        }
+
+        .btn-delete:active {
+            transform: translateY(0);
+        }
+
+        /* Responsivo */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 20px;
+            }
+
+            thead th {
+                padding: 12px 8px;
+                font-size: 0.8rem;
+            }
+
+            tbody td {
+                padding: 12px 8px;
+                font-size: 0.85rem;
+            }
+
+            .actions {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+
+            tbody td img {
+                width: 40px;
+                height: 40px;
+            }
+        }
+
+        /* Scroll horizontal em telas pequenas */
+        @media (max-width: 600px) {
+            .table-wrapper {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            table {
+                min-width: 600px;
+            }
+        }
+    </style>
 </head>
 <body>
     <h1>Lista de ninjas</h1>
     <table>
         <thead>
             <tr>
-                <th>Imagem</th>
                 <th>Id</th>
+                <th>Imagem</th>
                 <th>Nome</th>
                 <th>Idade</th>
                 <th>Email</th>
@@ -21,20 +278,24 @@
         </thead>
         <tbody>
         <tr th:each = "ninja: ${ninjas}">
-            <td> <img th:src="${ninja.imgurl}"> </td>
             <td th:text="${ninja.id}"></td>
+            <td> <img th:src="${ninja.imgurl}"> </td>
             <td th:text="${ninja.nome}"></td>
             <td th:text="${ninja.idade}"></td>
             <td th:text="${ninja.email}"></td>
             <td th:text="${ninja.rank}"></td>
-            <td th:text="${ninja.missoes}"></td>
+            <td>
+                <span th:if="${ninja.missoes}">Nome: <span th:text="${ninja.missoes.nome}"></span>Dificuldade: <span th:text="${ninja.missoes.dificuldade}"></span></span>
+                <span th:if="${ninja.missoes == null}">Sem Missões Cadastradas para o Ninja</span>
+            </td>
+
+            <td>
+                <a th:href="@{/ninjas/ui/#/{id}{id=${ninja.id}}">Ver Detalhes</a>
+                <a th:href="@{/ninjas/ui/#/{id}{id=${ninja.id}}">Alterar</a>
+                <a th:href="@{/ninjas/ui/deletar/{id}{id=${ninja.id}}">Deletar</a>
+            </td>
         </tr>
         </tbody>
     </table>
-
-
-
-
-
 </body>
 </html>
